@@ -1,3 +1,17 @@
+todo
+blah
+deadline return book
+deadline return book /go hoho
+deadline return book /by
+deadline /by monday
+deadline  /by monday
+event project meeting
+event project meeting /from yolo
+event /from mon /to tues
+event project meeting /from/to Tue
+event project meeting /from /to Tue
+event project meeting /from Mon /to
+event  /from Mon /to Tue
 todo read book
 deadline return book /by Sunday
 event project meeting /from Mon /to Tue
