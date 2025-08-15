@@ -61,6 +61,22 @@ OOPS!!! You did not provide a description of your event!
 ____________________________________________________________
 
 ____________________________________________________________
+OOPS!!! We only accept two inputs - the command and the integer
+____________________________________________________________
+
+____________________________________________________________
+OOPS!!! We only accept two inputs - the command and the integer
+____________________________________________________________
+
+____________________________________________________________
+OOPS!!! Please input an index following your command
+____________________________________________________________
+
+____________________________________________________________
+OOPS!!! Please input an index following your command
+____________________________________________________________
+
+____________________________________________________________
 Got it. I've added this task:
     [T][ ] read book
 Now you have 1 tasks in the list.
@@ -107,9 +123,38 @@ Here are the tasks in your list:
 3. [E][X] project meeting  (from: Mon to: Tue)
 ____________________________________________________________
 ____________________________________________________________
-OOPS!!! Please provide a valid command!
+Noted. I've removed this task:
+    [T][ ] read book
+Now you have 2 tasks in the list
 ____________________________________________________________
 
+____________________________________________________________
+Here are the tasks in your list:
+1. [D][ ] return book  (by: Sunday)
+2. [E][X] project meeting  (from: Mon to: Tue)
+____________________________________________________________
+____________________________________________________________
+Noted. I've removed this task:
+    [E][X] project meeting  (from: Mon to: Tue)
+Now you have 1 tasks in the list
+____________________________________________________________
+
+____________________________________________________________
+Here are the tasks in your list:
+1. [D][ ] return book  (by: Sunday)
+____________________________________________________________
+____________________________________________________________
+OOPS!!! Index given in input is out of range, please try an index within the range of your list
+____________________________________________________________
+
+____________________________________________________________
+OOPS!!! Please input an index following your command
+____________________________________________________________
+
+____________________________________________________________
+Here are the tasks in your list:
+1. [D][ ] return book  (by: Sunday)
+____________________________________________________________
 ____________________________________________________________
 Bye. Hope to see you again soon!
 ____________________________________________________________

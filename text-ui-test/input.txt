@@ -12,6 +12,10 @@ event project meeting /from/to Tue
 event project meeting /from /to Tue
 event project meeting /from Mon /to
 event  /from Mon /to Tue
+mark
+unmark
+mark 2stol
+unmark 2unmark
 todo read book
 deadline return book /by Sunday
 event project meeting /from Mon /to Tue
@@ -22,4 +26,10 @@ mark 3
 mark 4
 list
 delete 1
+list
+delete 2
+list
+delete 2
+delete 1stol
+list
 bye
