@@ -8,7 +8,7 @@ public class BobbyWasabi {
 
         // not valid command length
         if (wordList.length != 2) {
-            throw new BobbyWasabiException("To use the mark or unmark command, we only accept two inputs - the command and the integer");
+            throw new BobbyWasabiException("We only accept two inputs - the command and the integer");
         }
 
 
@@ -247,6 +247,36 @@ public class BobbyWasabi {
                 System.out.println(BobbyWasabi.generateErrorMsg(e.getMessage()));
                 continue;
             }
+
+            // delete
+            if (command.equals("delete")) {
+                try {
+                    if (BobbyWasabi.isValidInteger(userInput, list.size())) {
+                        String[] wordList = userInput.split(" ");
+                        int indx = Integer.parseInt(wordList[1]);
+                        Task targetTask = list.get(indx - 1);
+                        list.remove(indx - 1);
+
+                        String output = String.format("""
+                                ____________________________________________________________
+                                Noted. I've removed this task:
+                                    %s
+                                Now you have %d tasks in the list
+                                ____________________________________________________________
+                                """,
+                                targetTask, list.size());
+
+                        System.out.println(output);
+
+                        continue;
+                    }
+
+                } catch (BobbyWasabiException e) {
+                    System.out.println(BobbyWasabi.generateErrorMsg(e.getMessage()));
+                    continue;
+                }
+            }
+
 
             // no special commands given
             System.out.println(BobbyWasabi.generateErrorMsg("Please provide a valid command!"));
