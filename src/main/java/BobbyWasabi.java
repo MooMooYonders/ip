@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -102,6 +103,33 @@ public class BobbyWasabi {
                 System.out.println(decoLine + "\n" + output + decoLine);
 
                 continue;
+            }
+
+            // Todo, Deadline or Event
+            String[] wordList = userInput.split(" ");
+            if (wordList[0].equals("todo")) {
+                String description = userInput.split("todo ")[1];
+                list.add(new ToDo(description, false));
+                continue;
+            } else if (wordList[0].equals("deadline")) {
+                String[] deadline = userInput.split("/from", 2);
+
+                if (deadline.length == 2) {
+                    String description = deadline[0].split("deadline ")[1];
+                    list.add(new Deadline(description, false, deadline[1]));
+                    continue;
+                }
+
+            } else if (wordList[0].equals("event")) {
+                String[] event1 = userInput.split("/from", 2);
+                String[] event2 = userInput.split("/to", 2);
+
+                if (event1.length == 2 && event2.length == 2) {
+                    String description = event1[0].split("event ")[1];
+                    list.add(new Event(description, false, event1[1]));
+                    continue;
+                }
+
             }
 
             // no special commands given
