@@ -7,7 +7,7 @@ public class Deadline extends Task {
     }
 
     public String getDeadline() {
-        return "(by: " + this.deadline + ")";
+        return "(by:" + this.deadline + ")";
     }
 
     @Override

@@ -14,7 +14,7 @@ public class Event extends Task {
     }
 
     public String getDuration() {
-        return String.format("(from:%sto:%s",
+        return String.format("(from:%sto:%s)",
                 this.start,
                 this.end);
     }

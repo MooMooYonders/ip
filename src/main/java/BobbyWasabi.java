@@ -31,6 +31,20 @@ public class BobbyWasabi {
         return true;
     }
 
+    public static String addTaskOutput(Task task, int num) {
+        String decoLine = "____________________________________________________________";
+
+        String s = String.format("""
+                ____________________________________________________________
+                Got it. I've added this task:
+                    %s
+                Now you have %d tasks in the list.
+                """,
+                task, num);
+
+        return s;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Task> list = new ArrayList<>();
@@ -109,14 +123,21 @@ public class BobbyWasabi {
             String[] wordList = userInput.split(" ");
             if (wordList[0].equals("todo")) {
                 String description = userInput.split("todo ")[1];
-                list.add(new ToDo(description, false));
+                Task todo = new ToDo(description, false);
+                list.add(todo);
+
+                System.out.println(BobbyWasabi.addTaskOutput(todo, list.size()));
                 continue;
+
             } else if (wordList[0].equals("deadline")) {
-                String[] deadline = userInput.split("/from", 2);
+                String[] deadline = userInput.split("/by", 2);
 
                 if (deadline.length == 2) {
                     String description = deadline[0].split("deadline ")[1];
-                    list.add(new Deadline(description, false, deadline[1]));
+                    Task deadlineTask = new Deadline(description, false, deadline[1]);
+                    list.add(deadlineTask);
+
+                    System.out.println(BobbyWasabi.addTaskOutput(deadlineTask, list.size()));
                     continue;
                 }
 
@@ -126,7 +147,10 @@ public class BobbyWasabi {
 
                 if (event1.length == 2 && event2.length == 2) {
                     String description = event1[0].split("event ")[1];
-                    list.add(new Event(description, false, event1[1]));
+                    Task eventTask = new Event(description, false, event1[1]);
+                    list.add(eventTask);
+
+                    System.out.println(BobbyWasabi.addTaskOutput(eventTask, list.size()));
                     continue;
                 }
 
@@ -136,18 +160,10 @@ public class BobbyWasabi {
 
             // Store user input
             list.add(new Task(userInput, false));
-
+            Task justAdded = list.get(list.size() - 1);
 
             // Bot output
-            String botOutput = String.format(
-            """
-            ____________________________________________________________
-            added: %s
-            ____________________________________________________________
-                
-            """, userInput);
-
-            System.out.println(botOutput);
+            System.out.println(BobbyWasabi.addTaskOutput(justAdded, list.size()));
 
         }
 
