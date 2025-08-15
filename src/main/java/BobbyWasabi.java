@@ -100,21 +100,31 @@ public class BobbyWasabi {
 
                 if (command.equals("mark")) {
                     targetTask.setIsMarked(true);
-                } else {
-                    list.get(indx).setIsMarked(false);
-                }
+                    String curTask = String.format(
+                            "%d. %s\n",
+                            indx,
+                            targetTask);
 
-                String curTask = String.format(
-                        "%d. %s\n",
-                        indx,
-                        targetTask);
-
-                String output = String.format("""
+                    String output = String.format("""
                             Nice! I've marked this task as done:
                                %s""",
-                        curTask);
+                            curTask);
 
-                System.out.println(decoLine + "\n" + output + decoLine);
+                    System.out.println(decoLine + "\n" + output + decoLine);
+                } else {
+                    list.get(indx).setIsMarked(false);
+                    String curTask = String.format(
+                            "%d. %s\n",
+                            indx,
+                            targetTask);
+
+                    String output = String.format("""
+                            Nice! I've marked this task as not done yet:
+                               %s""",
+                            curTask);
+
+                    System.out.println(decoLine + "\n" + output + decoLine);
+                }
 
                 continue;
             }
