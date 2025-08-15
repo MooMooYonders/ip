@@ -15,7 +15,7 @@ public class BobbyWasabi {
         // not a valid integer
         try {
             int indx = Integer.parseInt(wordList[1]);
-            if (indx >= arrLen) {
+            if (indx > arrLen) {
                 throw new BobbyWasabiException("Index given in input is out of range, please try an index within the range of your list");
             }
 
@@ -89,7 +89,7 @@ public class BobbyWasabi {
                 for (int i = 0; i < list.size(); i++) {
                     Task cur = list.get(i);
 
-                    String curTask = String.format("%d. %s\n", i, cur);
+                    String curTask = String.format("%d. %s\n", i + 1, cur);
                     textList.append(curTask);
                 }
 
@@ -109,7 +109,7 @@ public class BobbyWasabi {
                     if (BobbyWasabi.isValidInteger(userInput, list.size())) {
                         String[] wordList = userInput.split(" ");
                         int indx = Integer.parseInt(wordList[1]);
-                        Task targetTask = list.get(indx);
+                        Task targetTask = list.get(indx - 1);
 
                         if (command.equals("mark")) {
                             targetTask.setIsMarked(true);
@@ -125,7 +125,7 @@ public class BobbyWasabi {
 
                             System.out.println(decoLine + "\n" + output + decoLine);
                         } else {
-                            list.get(indx).setIsMarked(false);
+                            targetTask.setIsMarked(false);
                             String curTask = String.format(
                                     "%d. %s\n",
                                     indx,
