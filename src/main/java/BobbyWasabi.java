@@ -2,9 +2,30 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class BobbyWasabi {
+
+    private static class Pair {
+        private String item;
+        private Boolean isMarked;
+
+        public Pair(String item, Boolean isMarked) {
+            this.item = item;
+            this.isMarked = isMarked;
+        }
+
+        public String getFirst() {
+            return this.item;
+        }
+
+        public Boolean getSecond() {
+            return this.isMarked;
+        }
+
+
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<Pair> list = new ArrayList<>();
+
 
         String decoLine = "____________________________________________________________";
 
@@ -29,16 +50,22 @@ public class BobbyWasabi {
 
             // if the user asks for list
             if (userInput.equals("list")) {
-                String textList = "";
+                StringBuilder textList = new StringBuilder("");
 
                 for (int i = 0; i < list.size(); i++) {
-                    String cur = list.get(i);
-                    String curItem = String.format("%d. %s\n", i, cur);
-                    textList += curItem;
+                    Pair cur = list.get(i);
+                    String curItem = cur.getFirst();
+                    Boolean curMarked = cur.getSecond();
+                    String checked = curMarked
+                            ? "X"
+                            : " ";
+
+                    String curTask = String.format("%d. [%s] %s\n", i, checked, curItem);
+                    textList.append(curTask);
                 }
 
 
-                String output = decoLine + "\n" + textList + decoLine;
+                String output = decoLine + "\n" + textList.toString() + decoLine;
 
                 System.out.println(output);
 
@@ -46,7 +73,7 @@ public class BobbyWasabi {
             }
 
             // Store user input
-            list.add(userInput);
+            list.add(new Pair(userInput, false));
 
 
             // Bot output
