@@ -2,15 +2,10 @@ public class Event extends Task {
     private String start;
     private String end;
 
-    public Event(String description, boolean isMarked, String duration) {
+    public Event(String description, boolean isMarked, String start, String end) {
         super(description, isMarked);
-        this.formatDuration(duration);
-    }
-
-    public void formatDuration(String duration) {
-        String[] durationList = duration.split("/to");
-        this.start = durationList[0];
-        this.end = durationList[1];
+        this.start = start;
+        this.end = end;
     }
 
     public String getDuration() {
