@@ -63,10 +63,8 @@ public class BobbyWasabi {
 
                 for (int i = 0; i < list.size(); i++) {
                     Task cur = list.get(i);
-                    String curItem = cur.getDescription();
-                    String checked = cur.checked();
 
-                    String curTask = String.format("%d. [%s] %s\n", i, checked, curItem);
+                    String curTask = String.format("%d. %s\n", i, cur);
                     textList.append(curTask);
                 }
 
@@ -92,10 +90,9 @@ public class BobbyWasabi {
                 }
 
                 String curTask = String.format(
-                        "%d. [%s] %s\n",
+                        "%d. %s\n",
                         indx,
-                        targetTask.checked(),
-                        targetTask.getDescription());
+                        targetTask);
 
                 String output = String.format("""
                             Nice! I've marked this task as done:

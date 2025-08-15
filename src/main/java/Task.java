@@ -8,19 +8,19 @@ public class Task {
         this.isMarked = isMarked;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
-
     public void setIsMarked(Boolean bool) {
         this.isMarked = bool;
     }
 
     public String checked() {
         if (this.isMarked) {
-            return "X";
+            return "[X]";
         } else {
-            return " ";
+            return "[ ]";
         }
+    }
+
+    public String toString() {
+        return this.checked() + " " + this.description;
     }
 }
