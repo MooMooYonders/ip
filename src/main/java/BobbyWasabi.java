@@ -3,38 +3,6 @@ import java.util.ArrayList;
 
 public class BobbyWasabi {
 
-    private static class Pair {
-        private String item;
-        private Boolean isMarked;
-
-        public Pair(String item, Boolean isMarked) {
-            this.item = item;
-            this.isMarked = isMarked;
-        }
-
-        public String getFirst() {
-            return this.item;
-        }
-
-        public Boolean getSecond() {
-            return this.isMarked;
-        }
-
-        public void setSecond(Boolean bool) {
-            this.isMarked = bool;
-        }
-
-        public String checked() {
-            if (this.isMarked) {
-                return "X";
-            } else {
-                return " ";
-            }
-        }
-
-
-    }
-
     public static boolean isValidInteger(String s, int arrLen) {
         String[] wordList = s.split(" ");
 
@@ -64,7 +32,7 @@ public class BobbyWasabi {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Pair> list = new ArrayList<>();
+        ArrayList<Task> list = new ArrayList<>();
 
 
         String decoLine = "____________________________________________________________";
@@ -94,8 +62,8 @@ public class BobbyWasabi {
                 StringBuilder textList = new StringBuilder("Here are the tasks in your list:\n");
 
                 for (int i = 0; i < list.size(); i++) {
-                    Pair cur = list.get(i);
-                    String curItem = cur.getFirst();
+                    Task cur = list.get(i);
+                    String curItem = cur.getDescription();
                     String checked = cur.checked();
 
                     String curTask = String.format("%d. [%s] %s\n", i, checked, curItem);
@@ -115,19 +83,19 @@ public class BobbyWasabi {
                 String[] wordList = userInput.split(" ");
                 int indx = Integer.parseInt(wordList[1]);
                 String command = wordList[0];
-                Pair targetTask = list.get(indx);
+                Task targetTask = list.get(indx);
 
                 if (command.equals("mark")) {
-                    targetTask.setSecond(true);
+                    targetTask.setIsMarked(true);
                 } else {
-                    list.get(indx).setSecond(false);
+                    list.get(indx).setIsMarked(false);
                 }
 
                 String curTask = String.format(
                         "%d. [%s] %s\n",
                         indx,
                         targetTask.checked(),
-                        targetTask.getFirst());
+                        targetTask.getDescription());
 
                 String output = String.format("""
                             Nice! I've marked this task as done:
@@ -142,7 +110,7 @@ public class BobbyWasabi {
             // no special commands given
 
             // Store user input
-            list.add(new Pair(userInput, false));
+            list.add(new Task(userInput, false));
 
 
             // Bot output
