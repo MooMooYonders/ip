@@ -12,7 +12,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[T]" + super.toString() + " " + this.getDeadline();
+        return "[D]" + super.toString() + " " + this.getDeadline();
     }
 
 }
