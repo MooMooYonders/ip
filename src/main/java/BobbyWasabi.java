@@ -17,7 +17,7 @@ public class BobbyWasabi {
         while (true) {
             String userInput = scanner.nextLine();
 
-            if (userInput == "bye") {
+            if (userInput.equals("bye")) {
                 break;
             }
 
